@@ -1,0 +1,17 @@
+
+.usersItem {
+    padding: 5px 0;
+}
+.usersItem.active {
+    color: var(--link-active)
+}
+
+.avaWrapper {
+    display: flex;
+}
+
+.mainWrapper {
+    display: grid;
+    grid-template-columns: 4fr 8fr;
+}
+

@@ -1,3 +1,11 @@
+:root {
+  --header-color: green;
+  --menu-link-color: #ffffff;
+  --sidebar-color: #298ad0;
+  --link-active: gold
+}
+
+
 .app_wrapper {
   display: grid;
   grid-template-rows: 60px 1fr;
@@ -7,18 +15,28 @@
     "head head"
     "nav cont";
 }
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
 
 .header {
   grid-area: head;
-  background-color: green;
+  background-color: var(--header-color);
 }
 
-.nav {
+.sidebar {
   grid-area: nav;
+  background-color: var(--sidebar-color);
+  padding: 10px;
 }
 
 .main {
   grid-area: cont;
+  
 }
 
 
@@ -55,6 +73,6 @@
 
 .content_head {
   display: flex;
-  align-items: start;
-  justify-content: start;
+  align-items: flex-start;
+  justify-content: flex-start;
 }
