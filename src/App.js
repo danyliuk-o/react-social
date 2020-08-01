@@ -19,7 +19,7 @@ const App = props => {
         <Header />
         <Navbar />
         <main className="main">
-          <Route path='/profile' render={() => <Profile posts={props.state.profilePage.postsData} addPost={props.addPost} />} />
+          <Route path='/profile' render={() => <Profile profilePage={props.state.profilePage} addPost={props.addPost} updateNewPostText={props.updateNewPostText} />} />
           <Route path='/dialogs' render={() => <Dialogs usersList={props.state.messagesPage.usersData} messagesList={props.state.messagesPage.messagesData} />} />
           <Route path='/news' component={News} />
           <Route path='/music' component={Music} />
