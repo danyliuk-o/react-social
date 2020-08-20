@@ -6,11 +6,11 @@ import App from './App';
 
 export const rerenderEntireTree = state => {
     ReactDOM.render(
-        <App state={state} addPost={store.addPost} updateNewPostText={store.updateNewPostText} />,
+        <App state={state} dispatch={store.dispatch.bind(store)} />,
         document.getElementById('root')
     );
 }
 
 rerenderEntireTree(store.getState());
 
-store.subscribe(rerenderEntireTree);
+store.subscribe(rerenderEntireTree); 
