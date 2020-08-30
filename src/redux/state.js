@@ -2,8 +2,8 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
-const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY'
-const SEND_MESSAGE = 'SEND_MESSAGE'
+const UPDATE_NEW_MESSAGE_BODY = 'UPDATE_NEW_MESSAGE_BODY';
+const SEND_MESSAGE = 'SEND_MESSAGE';
 
 let store = {
     _state: {
@@ -38,25 +38,16 @@ let store = {
         sidebar: {}
     },
     getState() {
+        // debugger;
         return this._state
     },
     subscribe(observer) {
-        this.callSubscriber = observer
+        this._callSubscriber = observer
     },
     _callSubscriber() {
         console.log('state was changed')
     },
 
-    // _addPost() {
-    //     let newPost = {
-    //         id: 6,
-    //         message: this._state.profilePage.newPostText,
-    //         likesCount: 0
-    //     };
-    //     this._state.profilePage.postsData.push(newPost);
-    //     this._state.profilePage.newPostText = '';
-    //     this.callSubscriber(this._state);
-    // },
     _updateNewPostText(newText) {
         this._state.profilePage.newPostText = newText;
         this.callSubscriber(this._state);
@@ -70,7 +61,7 @@ let store = {
             };
             this._state.profilePage.postsData.push(newPost);
             this._state.profilePage.newPostText = '';
-            this.callSubscriber(this._state);
+            this._callSubscriber(this._state);
 
         } else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.profilePage.newPostText = action.newText
@@ -83,7 +74,7 @@ let store = {
             let body = this._state.messagesPage.newMessageBody;
             this._state.messagesPage.newMessageBody = '';
             this._state.messagesPage.messagesData.push({ id: 6, message: body });
-            this.callSubscriber(this._state);
+            this._callSubscriber(this._state);
         }
     }
 }
