@@ -10,7 +10,6 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import './App.css';
 
-
 const App = props => {
   // debugger
   return (
