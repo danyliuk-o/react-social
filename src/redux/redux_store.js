@@ -4,9 +4,9 @@ import messagesReducer from "./messagesReducer";
 import sidebarReducer from "./sidebarReducer";
 
 let reducers = combineReducers({
-  profileReducer: profileReducer,
-  messagesReducer: messagesReducer,
-  sidebarReducer: sidebarReducer,
+  profilePage: profileReducer,
+  messagesPage: messagesReducer,
+  sidebar: sidebarReducer,
 });
 
 let store = createStore(reducers);

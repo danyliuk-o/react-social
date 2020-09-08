@@ -3,8 +3,7 @@ import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
 const Profile = (props) => {
-  console.log('profilePage', props.profilePage)
-  // debugger
+
   return (
     <div>
       <div className="banner">
@@ -13,7 +12,7 @@ const Profile = (props) => {
       <ProfileInfo />
       <MyPosts posts={props.profilePage.postsData} dispatch={props.dispatch} />
     </div>
-  );
+  ); 
 };
 
 export default Profile;

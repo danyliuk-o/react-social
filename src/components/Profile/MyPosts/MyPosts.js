@@ -1,9 +1,9 @@
 import React from "react";
 import Post from "./Post/Post";
-import {
-  addPostActionCreator,
-  updateNewPostTextActionCreator,
-} from "../../../redux/profileReducer";
+// import {
+//   addPostActionCreator,
+//   updateNewPostTextActionCreator,
+// } from "../../../redux/profileReducer";
 
 const MyPosts = (props) => {
   let postsElements = props.posts.map((post, key) => (
@@ -12,12 +12,14 @@ const MyPosts = (props) => {
 
   let newPostElement = React.createRef();
   const addPost = () => {
-    props.dispatch(addPostActionCreator());
+    props.addPost();
+    // props.dispatch(addPostActionCreator());
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    let action = updateNewPostTextActionCreator(text);
-    props.dispatch(action);
+    props.updateNewPostText(text)
+    // let action = updateNewPostTextActionCreator(text);
+    // props.dispatch(action);
   };
   return (
     <div className="posts_section">
