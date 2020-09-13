@@ -1,25 +1,23 @@
 import React from "react";
 import Post from "./Post/Post";
-// import {
-//   addPostActionCreator,
-//   updateNewPostTextActionCreator,
-// } from "../../../redux/profileReducer";
+
 
 const MyPosts = (props) => {
+  debugger
   let postsElements = props.posts.map((post, key) => (
     <Post key={key} message={post.message} likesCount={post.likesCount} />
   ));
 
   let newPostElement = React.createRef();
-  const addPost = () => {
+  const onAddPost = () => {
     props.addPost();
-    // props.dispatch(addPostActionCreator());
+    
+
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
     props.updateNewPostText(text)
-    // let action = updateNewPostTextActionCreator(text);
-    // props.dispatch(action);
+
   };
   return (
     <div className="posts_section">
@@ -29,12 +27,10 @@ const MyPosts = (props) => {
           onChange={onPostChange}
           value={props.newPostText}
           ref={newPostElement}
-          name=""
-          id=""
           cols="30"
           rows="3"
         ></textarea>
-        <button className="custom-btn" onClick={addPost}>
+        <button className="custom-btn" onClick={onAddPost}>
           Send
         </button>
       </div>
