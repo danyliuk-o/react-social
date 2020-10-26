@@ -5,7 +5,7 @@ import classes from './Navbar.module.css';
 
 const Navbar = () => {
     return (
-        <div className="sidebar">
+        <aside className="sidebar">
             <nav className={classes.nav}>
                 <ul className={classes.list}>
                     <li className={classes.item}><NavLink to="/profile" className={classes.link} activeClassName={classes.activeLink}>Profile</NavLink></li>
@@ -15,7 +15,7 @@ const Navbar = () => {
                     <li className={classes.item}><NavLink to="/settings" className={classes.link} activeClassName={classes.activeLink}>Settings</NavLink></li>
                 </ul>
             </nav>
-        </div>
+        </aside>
     )
 }
 

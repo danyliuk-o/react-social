@@ -10,7 +10,7 @@ const Profile = (props) => {
         <img src="./banner_pic.jpg" alt="" />
       </div>
       <ProfileInfo />
-      <MyPostsContainer store={props.store} />
+      <MyPostsContainer />
     </div>
   );
 };
