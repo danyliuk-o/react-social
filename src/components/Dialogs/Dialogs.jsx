@@ -8,14 +8,15 @@ import classes from './Dialogs.module.css'
 
 
 const Dialogs = props => {
-
+  
   let state = props.messagesPage
-
-  let usersElements = state.usersData.map(user => <DialogsUsersItem name={user.name} id={user.id} />);
-  let messagesElements = state.messagesData.map(message => <DialogsMessagesItem message={message.message} />)
+    
+  let usersElements = state.usersData.map(user => <DialogsUsersItem key={user.id} name={user.name} id={user.id} />);
+  let messagesElements = state.messagesData.map(message => <DialogsMessagesItem key={message.id} message={message.message} />)
   let newMessageBody = state.newMessageBody
 
   const onSendMessageClick = () => {
+    console.log('props ->', props.sendMessage())
     props.sendMessage();
   }
 

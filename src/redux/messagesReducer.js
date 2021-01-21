@@ -14,29 +14,34 @@ let initialState = {
     { id: 11, message: "hello!" },
     { id: 22, message: "ReactJS" },
     { id: 33, message: "Whats your problem?" },
-    { id: 44, message: "Lorem ipsum dolor sit amet consectetur adipisicing elit."},
+    { id: 44, message: "Lorem ipsum dolor sit amet consectetur adipisicing elit." },
     { id: 55, message: "Yo" },
   ],
-  newMessageBody: "",
+  newMessageBody: '',
 };
 
 const messagesReducer = (state = initialState, action) => {
+
   switch (action.type) {
     case UPDATE_NEW_MESSAGE_BODY:
-      state.newMessageBody = action.body;
-      return state;
+      return {
+        ...state,
+        newMessageBody: action.body
+      };
     case SEND_MESSAGE:
-      let body = state.newMessageBody;
-      state.newMessageBody = "";
-      state.messagesData.push({ id: 6, message: body });
-      return state;
+      const body = state.newMessageBody;
+      return {
+        ...state,
+        newMessageBody: '',
+        messagesData: [...state.messagesData, { id: 6, message: body }]
+      };
     default:
       return state;
   }
 };
 
 export const sendMessageCreator = () => ({ type: SEND_MESSAGE });
-export const updateNewMessageBodyCreator = (body) => ({
+export const updateNewMessageBodyCreator = body => ({
   type: UPDATE_NEW_MESSAGE_BODY,
   body: body,
 });
