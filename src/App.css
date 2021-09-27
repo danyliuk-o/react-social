@@ -137,3 +137,26 @@ a {
   background-color: var(--sidebar-color);
   cursor: pointer;
 }
+ul.pagination {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+ul.pagination li {
+  cursor: pointer;
+  width: 25px;
+  height: 25px;
+  display: block;
+  padding: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+ul.pagination li.active {
+  font-weight: bold;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.05);
+}
