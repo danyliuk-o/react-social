@@ -6,7 +6,7 @@ class Users extends React.Component {
   componentDidMount() {
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}$count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageSize}`
       )
       .then(res => {
         res.data.totalCount = 10;
@@ -19,7 +19,7 @@ class Users extends React.Component {
     this.props.setCurrentPage(pageNumber);
     axios
       .get(
-        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}$count=${this.props.pageSize}`
+        `https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageSize}`
       )
       .then(res => {
         this.props.setUsers(res.data.items);
@@ -29,10 +29,6 @@ class Users extends React.Component {
     let pagesCount = Math.ceil(
       this.props.totalUsersCount / this.props.pageSize
     );
-    // console.log("pagesCount ->", this.props.totalUsersCount);
-    // console.log("pagesCount ->", this.props.pageSize);
-    // console.log("pagesCount ->", pagesCount);
-    // console.log("pagesCount 1", pagesCount) 
 
     let pagesArr = [];
     for (let i = 1; i <= pagesCount; i++) {
@@ -43,11 +39,9 @@ class Users extends React.Component {
       <>
         <ul className='pagination'>
           {pagesArr.map(page => {
-            console.log('pagesArr', pagesArr)
             return (
               <li
-                onClick={event => {
-                  console.log('event', event)
+                onClick={() => {
                   this.onPageChanged(page);
                 }}
                 key={page}
@@ -67,7 +61,7 @@ class Users extends React.Component {
                   <div className='users-avatar-wrapper'>
                     <img
                       className='users-avatar-img'
-                      src={user.photos.small ? user.photos.small : userPhoto}
+                      src={user.photos.small || userPhoto}
                       alt='avatar'
                     />
                   </div>
