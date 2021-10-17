@@ -36,6 +36,7 @@ a {
 
 .main {
     grid-area: cont;
+    padding-bottom: 20px;
 }
 
 .logo_wrapper {
@@ -244,4 +245,24 @@ ul.pagination li.active {
     100% {
         transform: rotate(405deg);
     }
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 10px;
+}
+
+.login-block a{
+    cursor: pointer;
+    color: #fff
+}
+
+.users-follow-btn:disabled {
+    opacity: .5;
+}
+
+.users-follow-link {
+    display: block;
 }

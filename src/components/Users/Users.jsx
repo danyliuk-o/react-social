@@ -1,5 +1,7 @@
 import React from 'react';
 import userPhoto from "../../img/panda.png";
+import {NavLink} from "react-router-dom";
+import {usersAPI} from "../../api/api";
 
 const Users = (props) => {
     let pagesCount = Math.ceil(
@@ -32,25 +34,46 @@ const Users = (props) => {
                 <ul className='user-list'>
                     {props.users.map(user => (
                         <div className='users-item' key={user.id}>
+
                             <div className='users-ava-wrap'>
-                                <div className='users-avatar-wrapper'>
-                                    <img
-                                        className='users-avatar-img'
-                                        src={user.photos.small || userPhoto}
-                                        alt='avatar'
-                                    />
-                                </div>
+                                <NavLink to={`/profile/${user.id}`} className='users-follow-link'>
+                                    <div className='users-avatar-wrapper'>
+                                        <img
+                                            className='users-avatar-img'
+                                            src={user.photos.small || userPhoto}
+                                            alt='avatar'
+                                        />
+                                    </div>
+                                </NavLink>
                                 {user.followed ? (
                                     <button
+                                        disabled={props.followingInProgress.some(id => id === user.id)}
                                         className='users-follow-btn'
-                                        onClick={() => props.unfollow(user.id)}
+                                        onClick={() => {
+                                            props.toggleFollowingProgress(true, user.id)
+                                            usersAPI.userUnfollow(user.id).then(data => {
+                                                if (data.resultCode === 0) {
+                                                    props.unfollow(user.id)
+                                                }
+                                                props.toggleFollowingProgress(false, user.id)
+                                            });
+                                        }}
                                     >
                                         Unfollow
                                     </button>
                                 ) : (
                                     <button
+                                        disabled={props.followingInProgress.some(id => id === user.id)}
                                         className='users-follow-btn'
-                                        onClick={() => props.follow(user.id)}
+                                        onClick={() => {
+                                            props.toggleFollowingProgress(true, user.id)
+                                            usersAPI.userFollow(user.id).then(data => {
+                                                if (data.resultCode === 0) {
+                                                    props.follow(user.id)
+                                                }
+                                                props.toggleFollowingProgress(false, user.id)
+                                            });
+                                        }}
                                     >
                                         Follow
                                     </button>

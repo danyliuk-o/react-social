@@ -26,7 +26,7 @@ const MyPosts = props => {
           ref={newPostElement}
           cols="30"
           rows="3"
-        ></textarea>
+        />
         <button className="custom-btn" onClick={onAddPost}>
           Send
         </button>
