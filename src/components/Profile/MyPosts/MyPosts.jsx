@@ -1,8 +1,7 @@
 import React from "react";
 import Post from "./Post/Post";
 
-
-const MyPosts = props => {
+const MyPosts = (props) => {
   const postsElements = props.posts.map((post, key) => (
     <Post key={key} message={post.message} likesCount={post.likesCount} />
   ));
@@ -13,8 +12,7 @@ const MyPosts = props => {
   };
   let onPostChange = () => {
     let text = newPostElement.current.value;
-    props.updateNewPostText(text)
-
+    props.updateNewPostText(text);
   };
   return (
     <div className="posts_section">
