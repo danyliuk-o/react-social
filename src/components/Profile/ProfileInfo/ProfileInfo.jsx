@@ -1,7 +1,8 @@
 import React from "react";
 import Preloader from "../../common/Preloader/Preloader";
 import userPhoto from "../../../img/panda.png";
-import ProfileStatus from "./ProfileStatus";
+// import ProfileStatus from "./ProfileStatus";
+import ProfileStatusHooks from "./ProfileStatusHooks";
 
 const ProfileInfo = (props) => {
   if (!props.profile) return <Preloader />;
@@ -13,7 +14,7 @@ const ProfileInfo = (props) => {
       <div className="profile__bio">
         <div className="profile__name"> {props.profile.fullName}</div>
         <div className="profile__status">
-          <ProfileStatus
+          <ProfileStatusHooks
             status={props.status}
             updateUserStatus={props.updateUserStatus}
           />

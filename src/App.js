@@ -7,6 +7,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 import Login from "./components/Login/Login";
+import Test from "./components/Test/Test";
 
 import { Route, withRouter } from "react-router-dom";
 import "./App.css";
@@ -36,6 +37,7 @@ class App extends React.Component {
           <Route path="/music" component={Music} />
           <Route path="/settings" component={Settings} />
           <Route path="/login" component={Login} />
+          <Route path="/test" component={Test} />
         </main>
       </div>
     );

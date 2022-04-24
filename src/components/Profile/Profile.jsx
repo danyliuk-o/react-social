@@ -14,6 +14,7 @@ const Profile = (props) => {
         updateUserStatus={props.updateUserStatus}
       />
       <MyPostsContainer />
+
     </div>
   );
 };
