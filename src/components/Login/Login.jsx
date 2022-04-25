@@ -8,11 +8,12 @@ import { Redirect } from "react-router-dom";
 import classes from "./../common/FormsControls/FormsControls.module.css";
 
 const Login = (props) => {
+    const {login, error} = props
   const onSubmit = (formData) => {
-    props.login(formData.email, formData.password, formData.rememberMe);
+    login(formData.email, formData.password, formData.rememberMe);
   };
 
-  if (props.error) {
+  if (error) {
     return <Redirect to={"/profile"} />;
   }
   return (
@@ -24,7 +25,7 @@ const Login = (props) => {
 };
 
 const LoginForm = (props) => {
-  const { handleSubmit } = props;
+  const { handleSubmit, error } = props;
   return (
     <form onSubmit={handleSubmit}>
       <div>
@@ -56,7 +57,7 @@ const LoginForm = (props) => {
           validate={[required]}
         />
       </div>
-      {props.error && <div className={classes.formError}>{props.error}</div>}
+      {error && <div className={classes.formError}>{error}</div>}
       <div>
         <button>Login</button>
       </div>

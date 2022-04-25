@@ -17,17 +17,21 @@ import {
   getFollowingInProgress,
   getIsFetching,
   getPageSize,
-  getTotalUsersCount, getUsersReselect,
+  getTotalUsersCount,
 } from "../../redux/usersSelectors";
 
 class UsersContainer extends React.Component {
   componentDidMount() {
-    this.props.requestUsers(this.props.currentPage, this.props.pageSize);
+    const {requestUsers, currentPage, pageSize} = this.props
+    requestUsers(currentPage, pageSize);
   }
 
   onPageChanged = (pageNumber) => {
-    this.props.requestUsers(pageNumber, this.props.pageSize);
+    const {requestUsers, pageSize} = this.props
+    requestUsers(pageNumber, pageSize);
   };
+
+
 
   render() {
     return (
