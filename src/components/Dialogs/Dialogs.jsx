@@ -4,7 +4,7 @@ import DialogsUsersItem from "./DialogsUsersItem/DialogsUsersItem";
 import DialogsMessagesItem from "./DialogsMessagesItem/DialogsMessagesItem";
 
 import classes from "./Dialogs.module.css";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 import { Field, reduxForm } from "redux-form";
 import { Textarea } from "../common/FormsControls/FormsControls";
 import { maxLengthCreator, required } from "../../utils/validators/validators";

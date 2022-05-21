@@ -49,7 +49,7 @@ let store = {
 
   _updateNewPostText(newText) {
     this._state.profilePage.newPostText = newText;
-    this.callSubscriber(this._state);
+    this._callSubscriber(this._state);
   },
   dispatch(action) {
     this._state.profilePage = profileReducer(this._state.profilePage, action);
